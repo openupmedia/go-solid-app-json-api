@@ -1,0 +1,4511 @@
+swagger: '2.0'
+schemes:
+  - https
+info:
+  description: This is a JSON API compliant implementation
+  title: Go Solid - JSON API
+  version: '1.0.0'
+host: dev-app.go-solid.be
+basePath: /connect/api
+securityDefinitions:
+  OAuth2:
+    type: oauth2
+    flow: password
+    tokenUrl: https://dev-app.go-solid.be/oauth/token
+security:
+  - OAuth2: []
+tags:
+  - name: Content - Dossier
+    description: 'Content type Dossier of type Content. '
+    x-entity-type: node
+    x-definition:
+      $ref: '#/definitions/node--dfile'
+  - name: Content - Invoice
+    description: 'Content type Invoice of type Content. '
+    x-entity-type: node
+    x-definition:
+      $ref: '#/definitions/node--dfileline'
+  - name: Content - Credit note
+    description: 'Content type Credit note of type Content. '
+    x-entity-type: node
+    x-definition:
+      $ref: '#/definitions/node--credit_note'
+  - name: Content - Payment
+    description: 'Content type Payment of type Content. '
+    x-entity-type: node
+    x-definition:
+      $ref: '#/definitions/node--payment'
+  - name: Content - dfile cancel
+    description: 'Content type dfile cancel of type Content. '
+    x-entity-type: node
+    x-definition:
+      $ref: '#/definitions/node--dfile_cancel'
+  - name: Content - Company
+    description: 'Content type Company of type Content. '
+    x-entity-type: node
+    x-definition:
+      $ref: '#/definitions/node--pfile'
+  - name: File
+  - name: Taxonomy term - Countries
+    description: 'Vocabulary Countries of type Taxonomy term. '
+    x-entity-type: taxonomy_term
+    x-definition:
+      $ref: '#/definitions/taxonomy_term--countries'
+  - name: Taxonomy term - Lawyers
+    description: 'Vocabulary Lawyers of type Taxonomy term. '
+    x-entity-type: taxonomy_term
+    x-definition:
+      $ref: '#/definitions/taxonomy_term--lawyers'
+definitions:
+  node--dfile:
+    title: node:dfile Schema
+    description: Describes the payload for 'node' entities of the 'dfile' bundle.
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        description: >-
+          \"Resource objects\" appear in a JSON:API document to represent
+          resources.
+        type: object
+        required:
+          - type
+          - id
+        properties:
+          type:
+            type: string
+            title: type
+            description: Resource type
+            enum:
+              - node--dfile
+          id:
+            type: string
+            title: Resource ID
+            format: uuid
+            maxLength: 128
+          attributes:
+            description: Entity attributes
+            type: object
+            additionalProperties: false
+            properties:
+              filenumber:
+                type: string
+                title: File number
+                maxLength: 255
+              created:
+                type: number
+                title: Aangemaakt op
+                format: utc-millisec
+                description: Het tijdstip waarop de node is aangemaakt.
+              changed:
+                type: number
+                title: Gewijzigd
+                format: utc-millisec
+                description: Het tijdstip waarop de node voor het laatst werd bewerkt.
+              amount:
+                type: string
+                title: Total sum
+              completed:
+                type: boolean
+                title: completed
+                default: false
+              date:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    title: Date value
+                    format: date
+                required:
+                  - value
+                title: Start date
+              description:
+                type: string
+                title: Beschrijving
+              debtor_city:
+                type: string
+                title: Stad
+                maxLength: 255
+              debtor_companynmbr:
+                type: string
+                title: Company registration number
+                maxLength: 255
+              debtor_name:
+                type: string
+                title: Client
+                maxLength: 255
+              debtor_postalcode:
+                type: string
+                title: Postcode
+                maxLength: 255
+              debtor_street:
+                type: string
+                title: Straat
+                maxLength: 255
+              debtor_streetnumber:
+                type: string
+                title: Huisnummer
+                maxLength: 255
+              extra_mails:
+                type: array
+                title: Extra Mails
+                items:
+                  type: string
+                  title: Text value
+                  maxLength: 255
+              reference:
+                type: string
+                title: Reference
+                maxLength: 255
+              uniqueref:
+                type: string
+                title: dFileId
+                maxLength: 255
+          relationships:
+            description: Entity relationships
+            type: object
+            additionalProperties: false
+            properties:
+              created_on_api:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - taxonomy_term--api_consumer
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: created_on_api
+              creditnotes:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - type
+                        - id
+                      properties:
+                        type:
+                          type: string
+                          title: Referenced resource
+                          enum:
+                            - node--credit_note
+                        id:
+                          type: string
+                          title: Resource ID
+                          format: uuid
+                          maxLength: 128
+                title: Creditnota's
+              invoices:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - type
+                        - id
+                      properties:
+                        type:
+                          type: string
+                          title: Referenced resource
+                          enum:
+                            - node--dfileline
+                        id:
+                          type: string
+                          title: Resource ID
+                          format: uuid
+                          maxLength: 128
+                title: Facturen
+              company_id:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - node--pfile
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: Company
+              lawyer:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - taxonomy_term--lawyers
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: Advocaat
+              status:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - taxonomy_term--states
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: Status
+              payments:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - type
+                        - id
+                      properties:
+                        type:
+                          type: string
+                          title: Referenced resource
+                          enum:
+                            - node--payment
+                        id:
+                          type: string
+                          title: Resource ID
+                          format: uuid
+                          maxLength: 128
+                title: Betalingen
+          links:
+            type: object
+            additionalProperties:
+              description: >-
+                A link **MUST** be represented as either: a string containing
+                the link's URL or a link object .
+              type: object
+              required:
+                - href
+              properties:
+                href:
+                  description: 'A string containing the link''s URL . '
+                  type: string
+                  format: uri - reference
+                meta:
+                  description: >-
+                    Non-standard meta-information that can not be represented as
+                    an attribute or relationship.
+                  type: object
+                  additionalProperties: true
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+      meta:
+        description: >-
+          Non-standard meta-information that can not be represented as an
+          attribute or relationship.
+        type: object
+        additionalProperties: true
+      links:
+        type: object
+        additionalProperties:
+          description: >-
+            A link **MUST** be represented as either: a string containing the
+            link's URL or a link object .
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              description: 'A string containing the link''s URL . '
+              type: string
+              format: uri - reference
+            meta:
+              description: >-
+                Non-standard meta-information that can not be represented as an
+                attribute or relationship.
+              type: object
+              additionalProperties: true
+      jsonapi:
+        description: An object describing the server's implementation
+        type: object
+        properties:
+          version:
+            type: string
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+    additionalProperties: true
+  node--dfileline:
+    title: node:dfileline Schema
+    description: Describes the payload for 'node' entities of the 'dfileline' bundle.
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        description: >-
+          \"Resource objects\" appear in a JSON:API document to represent
+          resources.
+        type: object
+        required:
+          - type
+          - id
+        properties:
+          type:
+            type: string
+            title: type
+            description: Resource type
+            enum:
+              - node--dfileline
+          id:
+            type: string
+            title: Resource ID
+            format: uuid
+            maxLength: 128
+          attributes:
+            description: Entity attributes
+            type: object
+            additionalProperties: false
+            properties:
+              label:
+                type: string
+                title: Title
+                maxLength: 255
+              created:
+                type: number
+                title: Aangemaakt op
+                format: utc-millisec
+                description: Het tijdstip waarop de node is aangemaakt.
+              changed:
+                type: number
+                title: Gewijzigd
+                format: utc-millisec
+                description: Het tijdstip waarop de node voor het laatst werd bewerkt.
+              amount:
+                type: string
+                title: Bedrag
+              date:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    title: Date value
+                    format: date
+                required:
+                  - value
+                title: Datum
+              uniqueref:
+                type: string
+                title: uniqueRef
+                maxLength: 255
+          relationships:
+            description: Entity relationships
+            type: object
+            additionalProperties: false
+            properties:
+              creditnotes:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - type
+                        - id
+                      properties:
+                        type:
+                          type: string
+                          title: Referenced resource
+                          enum:
+                            - node--credit_note
+                        id:
+                          type: string
+                          title: Resource ID
+                          format: uuid
+                          maxLength: 128
+                title: Creditnota's
+              dossier_id:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - node--dfile
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: dFileId
+              conditions_file:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - file--file
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: internal_conditionsfile
+              invoice_file:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - file--file
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: internal_invoicefile
+              reminder_file:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - file--file
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: internal_reminderfile
+              payment_id:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - type
+                        - id
+                      properties:
+                        type:
+                          type: string
+                          title: Referenced resource
+                          enum:
+                            - node--payment
+                        id:
+                          type: string
+                          title: Resource ID
+                          format: uuid
+                          maxLength: 128
+                title: Betalingen
+          links:
+            type: object
+            additionalProperties:
+              description: >-
+                A link **MUST** be represented as either: a string containing
+                the link's URL or a link object .
+              type: object
+              required:
+                - href
+              properties:
+                href:
+                  description: 'A string containing the link''s URL . '
+                  type: string
+                  format: uri - reference
+                meta:
+                  description: >-
+                    Non-standard meta-information that can not be represented as
+                    an attribute or relationship.
+                  type: object
+                  additionalProperties: true
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+      meta:
+        description: >-
+          Non-standard meta-information that can not be represented as an
+          attribute or relationship.
+        type: object
+        additionalProperties: true
+      links:
+        type: object
+        additionalProperties:
+          description: >-
+            A link **MUST** be represented as either: a string containing the
+            link's URL or a link object .
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              description: 'A string containing the link''s URL . '
+              type: string
+              format: uri - reference
+            meta:
+              description: >-
+                Non-standard meta-information that can not be represented as an
+                attribute or relationship.
+              type: object
+              additionalProperties: true
+      jsonapi:
+        description: An object describing the server's implementation
+        type: object
+        properties:
+          version:
+            type: string
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+    additionalProperties: true
+  node--credit_note:
+    title: node:credit_note Schema
+    description: Describes the payload for 'node' entities of the 'credit_note' bundle.
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        description: >-
+          \"Resource objects\" appear in a JSON:API document to represent
+          resources.
+        type: object
+        required:
+          - type
+          - id
+        properties:
+          type:
+            type: string
+            title: type
+            description: Resource type
+            enum:
+              - node--credit_note
+          id:
+            type: string
+            title: Resource ID
+            format: uuid
+            maxLength: 128
+          attributes:
+            description: Entity attributes
+            type: object
+            additionalProperties: false
+            properties:
+              label:
+                type: string
+                title: Title
+                maxLength: 255
+              created:
+                type: number
+                title: Aangemaakt op
+                format: utc-millisec
+                description: Het tijdstip waarop de node is aangemaakt.
+              changed:
+                type: number
+                title: Gewijzigd
+                format: utc-millisec
+                description: Het tijdstip waarop de node voor het laatst werd bewerkt.
+              amount:
+                type: string
+                title: Bedrag
+              date:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    title: Date value
+                    format: date
+                required:
+                  - value
+                title: Datum
+              uniqueref:
+                type: string
+                title: uniqueRef
+                maxLength: 255
+          relationships:
+            description: Entity relationships
+            type: object
+            additionalProperties: false
+            properties:
+              dossier_id:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - node--dfile
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: dFileId
+              invoice_id:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - node--dfileline
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: facRef
+              invoice_file:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - file--file
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: internal_cn_file
+          links:
+            type: object
+            additionalProperties:
+              description: >-
+                A link **MUST** be represented as either: a string containing
+                the link's URL or a link object .
+              type: object
+              required:
+                - href
+              properties:
+                href:
+                  description: 'A string containing the link''s URL . '
+                  type: string
+                  format: uri - reference
+                meta:
+                  description: >-
+                    Non-standard meta-information that can not be represented as
+                    an attribute or relationship.
+                  type: object
+                  additionalProperties: true
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+      meta:
+        description: >-
+          Non-standard meta-information that can not be represented as an
+          attribute or relationship.
+        type: object
+        additionalProperties: true
+      links:
+        type: object
+        additionalProperties:
+          description: >-
+            A link **MUST** be represented as either: a string containing the
+            link's URL or a link object .
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              description: 'A string containing the link''s URL . '
+              type: string
+              format: uri - reference
+            meta:
+              description: >-
+                Non-standard meta-information that can not be represented as an
+                attribute or relationship.
+              type: object
+              additionalProperties: true
+      jsonapi:
+        description: An object describing the server's implementation
+        type: object
+        properties:
+          version:
+            type: string
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+    additionalProperties: true
+  node--payment:
+    title: node:payment Schema
+    description: Describes the payload for 'node' entities of the 'payment' bundle.
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        description: >-
+          \"Resource objects\" appear in a JSON:API document to represent
+          resources.
+        type: object
+        required:
+          - type
+          - id
+        properties:
+          type:
+            type: string
+            title: type
+            description: Resource type
+            enum:
+              - node--payment
+          id:
+            type: string
+            title: Resource ID
+            format: uuid
+            maxLength: 128
+          attributes:
+            description: Entity attributes
+            type: object
+            additionalProperties: false
+            properties:
+              label:
+                type: string
+                title: Title
+                maxLength: 255
+              created:
+                type: number
+                title: Aangemaakt op
+                format: utc-millisec
+                description: Het tijdstip waarop de node is aangemaakt.
+              changed:
+                type: number
+                title: Gewijzigd
+                format: utc-millisec
+                description: Het tijdstip waarop de node voor het laatst werd bewerkt.
+              amount:
+                type: string
+                title: Bedrag
+              date:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    title: Date value
+                    format: date
+                required:
+                  - value
+                title: Datum
+          relationships:
+            description: Entity relationships
+            type: object
+            additionalProperties: false
+            properties:
+              dossier_id:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - node--dfile
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: dFileId
+              invoice_id:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - node--dfileline
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: facRef
+          links:
+            type: object
+            additionalProperties:
+              description: >-
+                A link **MUST** be represented as either: a string containing
+                the link's URL or a link object .
+              type: object
+              required:
+                - href
+              properties:
+                href:
+                  description: 'A string containing the link''s URL . '
+                  type: string
+                  format: uri - reference
+                meta:
+                  description: >-
+                    Non-standard meta-information that can not be represented as
+                    an attribute or relationship.
+                  type: object
+                  additionalProperties: true
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+      meta:
+        description: >-
+          Non-standard meta-information that can not be represented as an
+          attribute or relationship.
+        type: object
+        additionalProperties: true
+      links:
+        type: object
+        additionalProperties:
+          description: >-
+            A link **MUST** be represented as either: a string containing the
+            link's URL or a link object .
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              description: 'A string containing the link''s URL . '
+              type: string
+              format: uri - reference
+            meta:
+              description: >-
+                Non-standard meta-information that can not be represented as an
+                attribute or relationship.
+              type: object
+              additionalProperties: true
+      jsonapi:
+        description: An object describing the server's implementation
+        type: object
+        properties:
+          version:
+            type: string
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+    additionalProperties: true
+  node--dfile_cancel:
+    title: node:dfile_cancel Schema
+    description: Describes the payload for 'node' entities of the 'dfile_cancel' bundle.
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        description: >-
+          \"Resource objects\" appear in a JSON:API document to represent
+          resources.
+        type: object
+        required:
+          - type
+          - id
+        properties:
+          type:
+            type: string
+            title: type
+            description: Resource type
+            enum:
+              - node--dfile_cancel
+          id:
+            type: string
+            title: Resource ID
+            format: uuid
+            maxLength: 128
+          attributes:
+            description: Entity attributes
+            type: object
+            additionalProperties: false
+            properties:
+              label:
+                type: string
+                title: Title
+                maxLength: 255
+              created:
+                type: number
+                title: Authored on
+                format: utc-millisec
+                description: The time that the node was created.
+              changed:
+                type: number
+                title: Changed
+                format: utc-millisec
+                description: The time that the node was last edited.
+              reason:
+                type: string
+                title: Beschrijving
+          relationships:
+            description: Entity relationships
+            type: object
+            additionalProperties: false
+            properties:
+              dossier_id:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - node--dfile
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: dFileId
+          links:
+            type: object
+            additionalProperties:
+              description: >-
+                A link **MUST** be represented as either: a string containing
+                the link's URL or a link object .
+              type: object
+              required:
+                - href
+              properties:
+                href:
+                  description: 'A string containing the link''s URL . '
+                  type: string
+                  format: uri - reference
+                meta:
+                  description: >-
+                    Non-standard meta-information that can not be represented as
+                    an attribute or relationship.
+                  type: object
+                  additionalProperties: true
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+      meta:
+        description: >-
+          Non-standard meta-information that can not be represented as an
+          attribute or relationship.
+        type: object
+        additionalProperties: true
+      links:
+        type: object
+        additionalProperties:
+          description: >-
+            A link **MUST** be represented as either: a string containing the
+            link's URL or a link object .
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              description: 'A string containing the link''s URL . '
+              type: string
+              format: uri - reference
+            meta:
+              description: >-
+                Non-standard meta-information that can not be represented as an
+                attribute or relationship.
+              type: object
+              additionalProperties: true
+      jsonapi:
+        description: An object describing the server's implementation
+        type: object
+        properties:
+          version:
+            type: string
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+    additionalProperties: true
+  node--pfile:
+    title: node:pfile Schema
+    description: Describes the payload for 'node' entities of the 'pfile' bundle.
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        description: >-
+          \"Resource objects\" appear in a JSON:API document to represent
+          resources.
+        type: object
+        required:
+          - type
+          - id
+        properties:
+          type:
+            type: string
+            title: type
+            description: Resource type
+            enum:
+              - node--pfile
+          id:
+            type: string
+            title: Resource ID
+            format: uuid
+            maxLength: 128
+          attributes:
+            description: Entity attributes
+            type: object
+            additionalProperties: false
+            properties:
+              name:
+                type: string
+                title: Company Name
+                maxLength: 255
+              created:
+                type: number
+                title: Aangemaakt op
+                format: utc-millisec
+                description: Het tijdstip waarop de node is aangemaakt.
+              changed:
+                type: number
+                title: Gewijzigd
+                format: utc-millisec
+                description: Het tijdstip waarop de node voor het laatst werd bewerkt.
+              address_city:
+                type: string
+                title: Town/city
+                maxLength: 255
+              address_number:
+                type: string
+                title: House number
+                maxLength: 255
+              address_street:
+                type: string
+                title: Street name
+                maxLength: 255
+              address_postalcode:
+                type: string
+                title: Postcode
+                maxLength: 255
+              email:
+                type: string
+                title: E-mail address
+                maxLength: 255
+              companynmbr:
+                type: string
+                title: Company registration number
+                maxLength: 255
+              phone:
+                type: string
+                title: Telephone number
+                maxLength: 255
+          relationships:
+            description: Entity relationships
+            type: object
+            additionalProperties: false
+            properties:
+              address_country:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - taxonomy_term--countries
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: Country
+              lawyer:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    required:
+                      - type
+                      - id
+                    properties:
+                      type:
+                        type: string
+                        title: Referenced resource
+                        enum:
+                          - taxonomy_term--lawyers
+                      id:
+                        type: string
+                        title: Resource ID
+                        format: uuid
+                        maxLength: 128
+                title: Advocaat
+          links:
+            type: object
+            additionalProperties:
+              description: >-
+                A link **MUST** be represented as either: a string containing
+                the link's URL or a link object .
+              type: object
+              required:
+                - href
+              properties:
+                href:
+                  description: 'A string containing the link''s URL . '
+                  type: string
+                  format: uri - reference
+                meta:
+                  description: >-
+                    Non-standard meta-information that can not be represented as
+                    an attribute or relationship.
+                  type: object
+                  additionalProperties: true
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+      meta:
+        description: >-
+          Non-standard meta-information that can not be represented as an
+          attribute or relationship.
+        type: object
+        additionalProperties: true
+      links:
+        type: object
+        additionalProperties:
+          description: >-
+            A link **MUST** be represented as either: a string containing the
+            link's URL or a link object .
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              description: 'A string containing the link''s URL . '
+              type: string
+              format: uri - reference
+            meta:
+              description: >-
+                Non-standard meta-information that can not be represented as an
+                attribute or relationship.
+              type: object
+              additionalProperties: true
+      jsonapi:
+        description: An object describing the server's implementation
+        type: object
+        properties:
+          version:
+            type: string
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+    additionalProperties: true
+  file--file:
+    title: file Schema
+    description: Describes the payload for 'file' entities.
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        description: >-
+          \"Resource objects\" appear in a JSON:API document to represent
+          resources.
+        type: object
+        required:
+          - type
+          - id
+        properties:
+          type:
+            type: string
+            title: type
+            description: Resource type
+            enum:
+              - file--file
+          id:
+            type: string
+            title: Resource ID
+            format: uuid
+            maxLength: 128
+          attributes:
+            description: Entity attributes
+            type: object
+            additionalProperties: false
+            properties:
+              filename:
+                type: string
+                title: Filename
+                maxLength: 255
+                description: Name of the file with no path components.
+              uri:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    title: URI value
+                    maxLength: 255
+                  url:
+                    type: string
+                    title: Root-relative file URL
+                required:
+                  - value
+                  - url
+                title: URI
+                description: The URI to access the file (either local or remote).
+              filemime:
+                type: string
+                title: File MIME type
+                maxLength: 255
+                description: The file\'s MIME type.
+              filesize:
+                type: integer
+                title: File size
+                description: The size of the file in bytes.
+              created:
+                type: number
+                title: Created
+                format: utc-millisec
+                description: The timestamp that the file was created.
+              changed:
+                type: number
+                title: Changed
+                format: utc-millisec
+                description: The timestamp that the file was last changed.
+          relationships:
+            description: >-
+              Members of the relationships object('relationships\") represent
+              references from the resource object in which it's defined to other
+              resource objects .
+            type: object
+            additionalProperties: false
+          links:
+            type: object
+            additionalProperties:
+              description: >-
+                A link **MUST** be represented as either: a string containing
+                the link's URL or a link object .
+              type: object
+              required:
+                - href
+              properties:
+                href:
+                  description: 'A string containing the link''s URL . '
+                  type: string
+                  format: uri - reference
+                meta:
+                  description: >-
+                    Non-standard meta-information that can not be represented as
+                    an attribute or relationship.
+                  type: object
+                  additionalProperties: true
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+      meta:
+        description: >-
+          Non-standard meta-information that can not be represented as an
+          attribute or relationship.
+        type: object
+        additionalProperties: true
+      links:
+        type: object
+        additionalProperties:
+          description: >-
+            A link **MUST** be represented as either: a string containing the
+            link's URL or a link object .
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              description: 'A string containing the link''s URL . '
+              type: string
+              format: uri - reference
+            meta:
+              description: >-
+                Non-standard meta-information that can not be represented as an
+                attribute or relationship.
+              type: object
+              additionalProperties: true
+      jsonapi:
+        description: An object describing the server's implementation
+        type: object
+        properties:
+          version:
+            type: string
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+    additionalProperties: true
+  taxonomy_term--countries:
+    title: taxonomy_term:countries Schema
+    description: >-
+      Describes the payload for 'taxonomy_term' entities of the 'countries'
+      bundle.
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        description: >-
+          \"Resource objects\" appear in a JSON:API document to represent
+          resources.
+        type: object
+        required:
+          - type
+          - id
+        properties:
+          type:
+            type: string
+            title: type
+            description: Resource type
+            enum:
+              - taxonomy_term--countries
+          id:
+            type: string
+            title: Resource ID
+            format: uuid
+            maxLength: 128
+          attributes:
+            description: Entity attributes
+            type: object
+            additionalProperties: false
+            properties:
+              langcode:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    title: Language code
+                  language:
+                    type: string
+                    title: Language object
+                    description: The referenced language
+                required:
+                  - value
+                title: Language
+                description: The term language code.
+              status:
+                type: boolean
+                title: Published
+                default: true
+              name:
+                type: string
+                title: Naam
+                maxLength: 255
+              description:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    title: Text
+                  format:
+                    type: string
+                    title: Text format
+                required:
+                  - value
+                title: Description
+              changed:
+                type: number
+                title: Changed
+                format: utc-millisec
+                description: The time that the term was last edited.
+              field_country_abbreviation:
+                type: string
+                title: Shortname
+                maxLength: 255
+            required:
+              - name
+              - field_country_abbreviation
+          relationships:
+            description: >-
+              Members of the relationships object('relationships\") represent
+              references from the resource object in which it's defined to other
+              resource objects .
+            type: object
+            additionalProperties: false
+          links:
+            type: object
+            additionalProperties:
+              description: >-
+                A link **MUST** be represented as either: a string containing
+                the link's URL or a link object .
+              type: object
+              required:
+                - href
+              properties:
+                href:
+                  description: 'A string containing the link''s URL . '
+                  type: string
+                  format: uri - reference
+                meta:
+                  description: >-
+                    Non-standard meta-information that can not be represented as
+                    an attribute or relationship.
+                  type: object
+                  additionalProperties: true
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+      meta:
+        description: >-
+          Non-standard meta-information that can not be represented as an
+          attribute or relationship.
+        type: object
+        additionalProperties: true
+      links:
+        type: object
+        additionalProperties:
+          description: >-
+            A link **MUST** be represented as either: a string containing the
+            link's URL or a link object .
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              description: 'A string containing the link''s URL . '
+              type: string
+              format: uri - reference
+            meta:
+              description: >-
+                Non-standard meta-information that can not be represented as an
+                attribute or relationship.
+              type: object
+              additionalProperties: true
+      jsonapi:
+        description: An object describing the server's implementation
+        type: object
+        properties:
+          version:
+            type: string
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+    additionalProperties: true
+  taxonomy_term--lawyers:
+    title: taxonomy_term:lawyers Schema
+    description: >-
+      Describes the payload for 'taxonomy_term' entities of the 'lawyers'
+      bundle.
+    type: object
+    required:
+      - data
+    properties:
+      data:
+        description: >-
+          \"Resource objects\" appear in a JSON:API document to represent
+          resources.
+        type: object
+        required:
+          - type
+          - id
+        properties:
+          type:
+            type: string
+            title: type
+            description: Resource type
+            enum:
+              - taxonomy_term--lawyers
+          id:
+            type: string
+            title: Resource ID
+            format: uuid
+            maxLength: 128
+          attributes:
+            description: Entity attributes
+            type: object
+            additionalProperties: false
+            properties:
+              langcode:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    title: Language code
+                  language:
+                    type: string
+                    title: Language object
+                    description: The referenced language
+                required:
+                  - value
+                title: Language
+                description: The term language code.
+              status:
+                type: boolean
+                title: Published
+                default: true
+              name:
+                type: string
+                title: Naam
+                maxLength: 255
+              description:
+                type: object
+                properties:
+                  value:
+                    type: string
+                    title: Text
+                  format:
+                    type: string
+                    title: Text format
+                required:
+                  - value
+                title: Beschrijving
+              changed:
+                type: number
+                title: Gewijzigd
+                format: utc-millisec
+                description: Het tijdstip waarop de term het laatst is aangepast.
+              field_lawyer_name:
+                type: string
+                title: Lawyer Name
+                maxLength: 255
+            required:
+              - name
+          relationships:
+            description: >-
+              Members of the relationships object('relationships\") represent
+              references from the resource object in which it's defined to other
+              resource objects .
+            type: object
+            additionalProperties: false
+          links:
+            type: object
+            additionalProperties:
+              description: >-
+                A link **MUST** be represented as either: a string containing
+                the link's URL or a link object .
+              type: object
+              required:
+                - href
+              properties:
+                href:
+                  description: 'A string containing the link''s URL . '
+                  type: string
+                  format: uri - reference
+                meta:
+                  description: >-
+                    Non-standard meta-information that can not be represented as
+                    an attribute or relationship.
+                  type: object
+                  additionalProperties: true
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+      meta:
+        description: >-
+          Non-standard meta-information that can not be represented as an
+          attribute or relationship.
+        type: object
+        additionalProperties: true
+      links:
+        type: object
+        additionalProperties:
+          description: >-
+            A link **MUST** be represented as either: a string containing the
+            link's URL or a link object .
+          type: object
+          required:
+            - href
+          properties:
+            href:
+              description: 'A string containing the link''s URL . '
+              type: string
+              format: uri - reference
+            meta:
+              description: >-
+                Non-standard meta-information that can not be represented as an
+                attribute or relationship.
+              type: object
+              additionalProperties: true
+      jsonapi:
+        description: An object describing the server's implementation
+        type: object
+        properties:
+          version:
+            type: string
+          meta:
+            description: >-
+              Non-standard meta-information that can not be represented as an
+              attribute or relationship.
+            type: object
+            additionalProperties: true
+        additionalProperties: false
+    additionalProperties: true
+consumes:
+  - application/vnd.api+json
+produces:
+  - application/vnd.api+json
+paths:
+  /dossier:
+    get:
+      summary: List (Content - Dossier)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
+        for the node--dfile resource type. Collections are a list of <em
+        class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        objects</a></em> for a particular resource type. In the JSON API module
+        for Drupal all collections are homogeneous, which means that all the
+        items in a collection are of the same type.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: filter
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module has some of the most robust and feature-rich
+            filtering features around. All of that power comes with a bit of a
+            learning curve though. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
+            more in the documentation</a>.
+        - name: sort
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module allows you to sort collections based on
+            properties in the resource or in nested resources. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
+            more in the documentation</a>.
+        - name: page
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            Pagination can be a deceptively complex topic. It's easy to fall
+            into traps and not follow best-practices. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
+            more in the documentation</a>.
+        - name: include
+          in: query
+          type: string
+          required: false
+          description: >-
+            Embed related entities in the response. For example: use a query
+            string like <code>?include=comments.author</code> to include all the
+            entities referenced by <code>comments</code> and all the entities
+            referenced by <code>author</code> on those entities!. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
+            more in the documentation</a>.
+      tags:
+        - Content - Dossier
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:dfile Schema
+            description: Describes the payload for 'node' entities of the 'dfile' bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--dfile/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+    post:
+      summary: Create (Content - Dossier)
+      parameters:
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--dfile'
+      tags:
+        - Content - Dossier
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:dfile Schema
+            description: Describes the payload for 'node' entities of the 'dfile' bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--dfile/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /dossier/{entity}:
+    get:
+      summary: View (Content - Dossier)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
+        for the node--dfile resource type. The individual endpoint contains a
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular resource or entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfile
+      tags:
+        - Content - Dossier
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfile'
+    delete:
+      summary: Remove (Content - Dossier)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfile
+      tags:
+        - Content - Dossier
+      responses:
+        '201':
+          description: Entity deleted
+    patch:
+      summary: Update (Content - Dossier)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfile
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--dfile'
+      tags:
+        - Content - Dossier
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfile'
+  /dossier/{entity}/invoices:
+    get:
+      summary: 'Related: invoices (Content - Invoice)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the node--dfileline resource type through the <em
+        class="placeholder">invoices</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfile
+      tags:
+        - Content - Dossier
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:dfileline Schema
+            description: >-
+              Describes the payload for 'node' entities of the 'dfileline'
+              bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--dfileline/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /dossier/{entity}/payments:
+    get:
+      summary: 'Related: payments (Content - Payment)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the node--payment resource type through the <em
+        class="placeholder">payments</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfile
+      tags:
+        - Content - Dossier
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:payment Schema
+            description: Describes the payload for 'node' entities of the 'payment' bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--payment/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /invoice:
+    get:
+      summary: List (Content - Invoice)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
+        for the node--dfileline resource type. Collections are a list of <em
+        class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        objects</a></em> for a particular resource type. In the JSON API module
+        for Drupal all collections are homogeneous, which means that all the
+        items in a collection are of the same type.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: filter
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module has some of the most robust and feature-rich
+            filtering features around. All of that power comes with a bit of a
+            learning curve though. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
+            more in the documentation</a>.
+        - name: sort
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module allows you to sort collections based on
+            properties in the resource or in nested resources. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
+            more in the documentation</a>.
+        - name: page
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            Pagination can be a deceptively complex topic. It's easy to fall
+            into traps and not follow best-practices. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
+            more in the documentation</a>.
+        - name: include
+          in: query
+          type: string
+          required: false
+          description: >-
+            Embed related entities in the response. For example: use a query
+            string like <code>?include=comments.author</code> to include all the
+            entities referenced by <code>comments</code> and all the entities
+            referenced by <code>author</code> on those entities!. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
+            more in the documentation</a>.
+      tags:
+        - Content - Invoice
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:dfileline Schema
+            description: >-
+              Describes the payload for 'node' entities of the 'dfileline'
+              bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--dfileline/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+    post:
+      summary: Create (Content - Invoice)
+      parameters:
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--dfileline'
+      tags:
+        - Content - Invoice
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:dfileline Schema
+            description: >-
+              Describes the payload for 'node' entities of the 'dfileline'
+              bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--dfileline/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /invoice/{entity}:
+    get:
+      summary: View (Content - Invoice)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
+        for the node--dfileline resource type. The individual endpoint contains
+        a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular resource or entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfileline
+      tags:
+        - Content - Invoice
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfileline'
+    delete:
+      summary: Remove (Content - Invoice)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfileline
+      tags:
+        - Content - Invoice
+      responses:
+        '201':
+          description: Entity deleted
+    patch:
+      summary: Update (Content - Invoice)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfileline
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--dfileline'
+      tags:
+        - Content - Invoice
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfileline'
+  /invoice/{entity}/conditions_file:
+    get:
+      summary: 'Related: conditions_file (File)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the file--file resource type through the <em
+        class="placeholder">conditions_file</em> relationship. The related
+        endpoint contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfileline
+      tags:
+        - Content - Invoice
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/file--file'
+  /invoice/{entity}/creditnotes:
+    get:
+      summary: 'Related: creditnotes (Content - Credit note)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the node--credit_note resource type through the <em
+        class="placeholder">creditnotes</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfileline
+      tags:
+        - Content - Invoice
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:credit_note Schema
+            description: >-
+              Describes the payload for 'node' entities of the 'credit_note'
+              bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--credit_note/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /invoice/{entity}/dossier_id:
+    get:
+      summary: 'Related: dossier_id (Content - Dossier)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the node--dfile resource type through the <em
+        class="placeholder">dossier_id</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfileline
+      tags:
+        - Content - Invoice
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfile'
+  /invoice/{entity}/invoice_file:
+    get:
+      summary: 'Related: invoice_file (File)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the file--file resource type through the <em
+        class="placeholder">invoice_file</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfileline
+      tags:
+        - Content - Invoice
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/file--file'
+  /invoice/{entity}/payment_id:
+    get:
+      summary: 'Related: payment_id (Content - Payment)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the node--payment resource type through the <em
+        class="placeholder">payment_id</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfileline
+      tags:
+        - Content - Invoice
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:payment Schema
+            description: Describes the payload for 'node' entities of the 'payment' bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--payment/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /invoice/{entity}/reminder_file:
+    get:
+      summary: 'Related: reminder_file (File)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the file--file resource type through the <em
+        class="placeholder">reminder_file</em> relationship. The related
+        endpoint contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfileline
+      tags:
+        - Content - Invoice
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/file--file'
+  /creditnote:
+    get:
+      summary: List (Content - Credit note)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
+        for the node--credit_note resource type. Collections are a list of <em
+        class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        objects</a></em> for a particular resource type. In the JSON API module
+        for Drupal all collections are homogeneous, which means that all the
+        items in a collection are of the same type.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: filter
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module has some of the most robust and feature-rich
+            filtering features around. All of that power comes with a bit of a
+            learning curve though. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
+            more in the documentation</a>.
+        - name: sort
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module allows you to sort collections based on
+            properties in the resource or in nested resources. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
+            more in the documentation</a>.
+        - name: page
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            Pagination can be a deceptively complex topic. It's easy to fall
+            into traps and not follow best-practices. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
+            more in the documentation</a>.
+        - name: include
+          in: query
+          type: string
+          required: false
+          description: >-
+            Embed related entities in the response. For example: use a query
+            string like <code>?include=comments.author</code> to include all the
+            entities referenced by <code>comments</code> and all the entities
+            referenced by <code>author</code> on those entities!. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
+            more in the documentation</a>.
+      tags:
+        - Content - Credit note
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:credit_note Schema
+            description: >-
+              Describes the payload for 'node' entities of the 'credit_note'
+              bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--credit_note/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+    post:
+      summary: Create (Content - Credit note)
+      parameters:
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--credit_note'
+      tags:
+        - Content - Credit note
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--credit_note'
+  /creditnote/{entity}:
+    get:
+      summary: View (Content - Credit note)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
+        for the node--credit_note resource type. The individual endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular resource or entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node credit_note
+      tags:
+        - Content - Credit note
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--credit_note'
+    delete:
+      summary: Remove (Content - Credit note)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node credit_note
+      tags:
+        - Content - Credit note
+      responses:
+        '201':
+          description: Entity deleted
+    patch:
+      summary: Update (Content - Credit note)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node credit_note
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--credit_note'
+      tags:
+        - Content - Credit note
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--credit_note'
+  /creditnote/{entity}/dossier_id:
+    get:
+      summary: 'Related: dossier_id (Content - Dossier)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the node--dfile resource type through the <em
+        class="placeholder">dossier_id</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node credit_note
+      tags:
+        - Content - Credit note
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfile'
+  /creditnote/{entity}/invoice_file:
+    get:
+      summary: 'Related: invoice_file (File)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the file--file resource type through the <em
+        class="placeholder">invoice_file</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node credit_note
+      tags:
+        - Content - Credit note
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/file--file'
+  /creditnote/{entity}/invoice_id:
+    get:
+      summary: 'Related: invoice_id (Content - Invoice)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the node--dfileline resource type through the <em
+        class="placeholder">invoice_id</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node credit_note
+      tags:
+        - Content - Credit note
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfileline'
+  /payment:
+    get:
+      summary: List (Content - Payment)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
+        for the node--payment resource type. Collections are a list of <em
+        class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        objects</a></em> for a particular resource type. In the JSON API module
+        for Drupal all collections are homogeneous, which means that all the
+        items in a collection are of the same type.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: filter
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module has some of the most robust and feature-rich
+            filtering features around. All of that power comes with a bit of a
+            learning curve though. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
+            more in the documentation</a>.
+        - name: sort
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module allows you to sort collections based on
+            properties in the resource or in nested resources. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
+            more in the documentation</a>.
+        - name: page
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            Pagination can be a deceptively complex topic. It's easy to fall
+            into traps and not follow best-practices. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
+            more in the documentation</a>.
+        - name: include
+          in: query
+          type: string
+          required: false
+          description: >-
+            Embed related entities in the response. For example: use a query
+            string like <code>?include=comments.author</code> to include all the
+            entities referenced by <code>comments</code> and all the entities
+            referenced by <code>author</code> on those entities!. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
+            more in the documentation</a>.
+      tags:
+        - Content - Payment
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:payment Schema
+            description: Describes the payload for 'node' entities of the 'payment' bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--payment/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+    post:
+      summary: Create (Content - Payment)
+      parameters:
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--payment'
+      tags:
+        - Content - Payment
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:payment Schema
+            description: Describes the payload for 'node' entities of the 'payment' bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--payment/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /payment/{entity}:
+    get:
+      summary: View (Content - Payment)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
+        for the node--payment resource type. The individual endpoint contains a
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular resource or entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node payment
+      tags:
+        - Content - Payment
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--payment'
+    delete:
+      summary: Remove (Content - Payment)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node payment
+      tags:
+        - Content - Payment
+      responses:
+        '201':
+          description: Entity deleted
+    patch:
+      summary: Update (Content - Payment)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node payment
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--payment'
+      tags:
+        - Content - Payment
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--payment'
+  /payment/{entity}/dossier_id:
+    get:
+      summary: 'Related: dossier_id (Content - Dossier)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the node--dfile resource type through the <em
+        class="placeholder">dossier_id</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node payment
+      tags:
+        - Content - Payment
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfile'
+  /payment/{entity}/invoice_id:
+    get:
+      summary: 'Related: invoice_id (Content - Invoice)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the node--dfileline resource type through the <em
+        class="placeholder">invoice_id</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node payment
+      tags:
+        - Content - Payment
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfileline'
+  /shutdown:
+    get:
+      summary: List (Content - dfile cancel)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
+        for the node--dfile_cancel resource type. Collections are a list of <em
+        class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        objects</a></em> for a particular resource type. In the JSON API module
+        for Drupal all collections are homogeneous, which means that all the
+        items in a collection are of the same type.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: filter
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module has some of the most robust and feature-rich
+            filtering features around. All of that power comes with a bit of a
+            learning curve though. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
+            more in the documentation</a>.
+        - name: sort
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module allows you to sort collections based on
+            properties in the resource or in nested resources. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
+            more in the documentation</a>.
+        - name: page
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            Pagination can be a deceptively complex topic. It's easy to fall
+            into traps and not follow best-practices. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
+            more in the documentation</a>.
+        - name: include
+          in: query
+          type: string
+          required: false
+          description: >-
+            Embed related entities in the response. For example: use a query
+            string like <code>?include=comments.author</code> to include all the
+            entities referenced by <code>comments</code> and all the entities
+            referenced by <code>author</code> on those entities!. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
+            more in the documentation</a>.
+      tags:
+        - Content - dfile cancel
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:dfile_cancel Schema
+            description: >-
+              Describes the payload for 'node' entities of the 'dfile_cancel'
+              bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--dfile_cancel/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+    post:
+      summary: Create (Content - dfile cancel)
+      parameters:
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--dfile_cancel'
+      tags:
+        - Content - dfile cancel
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:dfile_cancel Schema
+            description: >-
+              Describes the payload for 'node' entities of the 'dfile_cancel'
+              bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--dfile_cancel/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /shutdown/{entity}:
+    get:
+      summary: View (Content - dfile cancel)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
+        for the node--dfile_cancel resource type. The individual endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular resource or entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfile_cancel
+      tags:
+        - Content - dfile cancel
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfile_cancel'
+    delete:
+      summary: Remove (Content - dfile cancel)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfile_cancel
+      tags:
+        - Content - dfile cancel
+      responses:
+        '201':
+          description: Entity deleted
+    patch:
+      summary: Update (Content - dfile cancel)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfile_cancel
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--dfile_cancel'
+      tags:
+        - Content - dfile cancel
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfile_cancel'
+  /shutdown/{entity}/dossier_id:
+    get:
+      summary: 'Related: dossier_id (Content - Dossier)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the node--dfile resource type through the <em
+        class="placeholder">dossier_id</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node dfile_cancel
+      tags:
+        - Content - dfile cancel
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--dfile'
+  /company/{entity}/address_country:
+    get:
+      summary: 'Related: address_country (Taxonomy term - Countries)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the taxonomy_term--countries resource type through the <em
+        class="placeholder">address_country</em> relationship. The related
+        endpoint contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node pfile
+      tags:
+        - Content - Company
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/taxonomy_term--countries'
+  /company:
+    get:
+      summary: List (Content - Company)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
+        for the node--pfile resource type. Collections are a list of <em
+        class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        objects</a></em> for a particular resource type. In the JSON API module
+        for Drupal all collections are homogeneous, which means that all the
+        items in a collection are of the same type.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: filter
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module has some of the most robust and feature-rich
+            filtering features around. All of that power comes with a bit of a
+            learning curve though. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
+            more in the documentation</a>.
+        - name: sort
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module allows you to sort collections based on
+            properties in the resource or in nested resources. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
+            more in the documentation</a>.
+        - name: page
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            Pagination can be a deceptively complex topic. It's easy to fall
+            into traps and not follow best-practices. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
+            more in the documentation</a>.
+        - name: include
+          in: query
+          type: string
+          required: false
+          description: >-
+            Embed related entities in the response. For example: use a query
+            string like <code>?include=comments.author</code> to include all the
+            entities referenced by <code>comments</code> and all the entities
+            referenced by <code>author</code> on those entities!. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
+            more in the documentation</a>.
+      tags:
+        - Content - Company
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:pfile Schema
+            description: Describes the payload for 'node' entities of the 'pfile' bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--pfile/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+    post:
+      summary: Create (Content - Company)
+      parameters:
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--pfile'
+      tags:
+        - Content - Company
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: node:pfile Schema
+            description: Describes the payload for 'node' entities of the 'pfile' bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/node--pfile/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /company/{entity}:
+    get:
+      summary: View (Content - Company)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
+        for the node--pfile resource type. The individual endpoint contains a
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular resource or entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node pfile
+      tags:
+        - Content - Company
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--pfile'
+    delete:
+      summary: Remove (Content - Company)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node pfile
+      tags:
+        - Content - Company
+      responses:
+        '201':
+          description: Entity deleted
+    patch:
+      summary: Update (Content - Company)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node pfile
+        - name: body
+          in: body
+          description: The <em class="placeholder">node</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/node--pfile'
+      tags:
+        - Content - Company
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/node--pfile'
+  /company/{entity}/lawyer:
+    get:
+      summary: 'Related: lawyer (Taxonomy term - Lawyers)'
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
+        the taxonomy_term--lawyers resource type through the <em
+        class="placeholder">lawyer</em> relationship. The related endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular related resource or
+        entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: >-
+            The JSON:API module exposes entity revisions as resource versions.
+            <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
+            more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node pfile
+      tags:
+        - Content - Company
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/taxonomy_term--lawyers'
+  /file:
+    get:
+      summary: List (File)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
+        for the file--file resource type. Collections are a list of <em
+        class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        objects</a></em> for a particular resource type. In the JSON API module
+        for Drupal all collections are homogeneous, which means that all the
+        items in a collection are of the same type.
+      parameters:
+        - name: filter
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module has some of the most robust and feature-rich
+            filtering features around. All of that power comes with a bit of a
+            learning curve though. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
+            more in the documentation</a>.
+        - name: sort
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module allows you to sort collections based on
+            properties in the resource or in nested resources. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
+            more in the documentation</a>.
+        - name: page
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            Pagination can be a deceptively complex topic. It's easy to fall
+            into traps and not follow best-practices. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
+            more in the documentation</a>.
+        - name: include
+          in: query
+          type: string
+          required: false
+          description: >-
+            Embed related entities in the response. For example: use a query
+            string like <code>?include=comments.author</code> to include all the
+            entities referenced by <code>comments</code> and all the entities
+            referenced by <code>author</code> on those entities!. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
+            more in the documentation</a>.
+      tags:
+        - File
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: file Schema
+            description: Describes the payload for 'file' entities.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/file--file/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /file/create:
+    post:
+      summary: Create (File)
+      parameters:
+        - name: body
+          in: body
+          description: The <em class="placeholder">file</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/file--file'
+      tags:
+        - File
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/file--file'
+  /file/{entity}:
+    get:
+      summary: View (File)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
+        for the file--file resource type. The individual endpoint contains a <em
+        class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular resource or entity.
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the file file
+      tags:
+        - File
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/file--file'
+    patch:
+      summary: Update (File)
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the file file
+        - name: body
+          in: body
+          description: The <em class="placeholder">file</em> object
+          required: true
+          schema:
+            $ref: '#/definitions/file--file'
+      tags:
+        - File
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/file--file'
+  /taxonomy/countries:
+    get:
+      summary: List (Taxonomy term - Countries)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
+        for the taxonomy_term--countries resource type. Collections are a list
+        of <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        objects</a></em> for a particular resource type. In the JSON API module
+        for Drupal all collections are homogeneous, which means that all the
+        items in a collection are of the same type.
+      parameters:
+        - name: filter
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module has some of the most robust and feature-rich
+            filtering features around. All of that power comes with a bit of a
+            learning curve though. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
+            more in the documentation</a>.
+        - name: sort
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module allows you to sort collections based on
+            properties in the resource or in nested resources. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
+            more in the documentation</a>.
+        - name: page
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            Pagination can be a deceptively complex topic. It's easy to fall
+            into traps and not follow best-practices. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
+            more in the documentation</a>.
+        - name: include
+          in: query
+          type: string
+          required: false
+          description: >-
+            Embed related entities in the response. For example: use a query
+            string like <code>?include=comments.author</code> to include all the
+            entities referenced by <code>comments</code> and all the entities
+            referenced by <code>author</code> on those entities!. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
+            more in the documentation</a>.
+      tags:
+        - Taxonomy term - Countries
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: taxonomy_term:countries Schema
+            description: >-
+              Describes the payload for 'taxonomy_term' entities of the
+              'countries' bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/taxonomy_term--countries/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /taxonomy/countries/{entity}:
+    get:
+      summary: View (Taxonomy term - Countries)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
+        for the taxonomy_term--countries resource type. The individual endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular resource or entity.
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the taxonomy_term countries
+      tags:
+        - Taxonomy term - Countries
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/taxonomy_term--countries'
+  /taxonomy/lawyers:
+    get:
+      summary: List (Taxonomy term - Lawyers)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
+        for the taxonomy_term--lawyers resource type. Collections are a list of
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        objects</a></em> for a particular resource type. In the JSON API module
+        for Drupal all collections are homogeneous, which means that all the
+        items in a collection are of the same type.
+      parameters:
+        - name: filter
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module has some of the most robust and feature-rich
+            filtering features around. All of that power comes with a bit of a
+            learning curve though. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
+            more in the documentation</a>.
+        - name: sort
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            The JSON:API module allows you to sort collections based on
+            properties in the resource or in nested resources. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
+            more in the documentation</a>.
+        - name: page
+          in: query
+          type: array
+          items:
+            type: string
+          required: false
+          description: >-
+            Pagination can be a deceptively complex topic. It's easy to fall
+            into traps and not follow best-practices. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
+            more in the documentation</a>.
+        - name: include
+          in: query
+          type: string
+          required: false
+          description: >-
+            Embed related entities in the response. For example: use a query
+            string like <code>?include=comments.author</code> to include all the
+            entities referenced by <code>comments</code> and all the entities
+            referenced by <code>author</code> on those entities!. <a
+            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
+            more in the documentation</a>.
+      tags:
+        - Taxonomy term - Lawyers
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            title: taxonomy_term:lawyers Schema
+            description: >-
+              Describes the payload for 'taxonomy_term' entities of the
+              'lawyers' bundle.
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/taxonomy_term--lawyers/properties/data'
+              meta:
+                description: >-
+                  Non-standard meta-information that can not be represented as
+                  an attribute or relationship.
+                type: object
+                additionalProperties: true
+              links:
+                type: object
+                additionalProperties:
+                  description: >-
+                    A link **MUST** be represented as either: a string
+                    containing the link's URL or a link object .
+                  type: object
+                  required:
+                    - href
+                  properties:
+                    href:
+                      description: 'A string containing the link''s URL . '
+                      type: string
+                      format: uri - reference
+                    meta:
+                      description: >-
+                        Non-standard meta-information that can not be
+                        represented as an attribute or relationship.
+                      type: object
+                      additionalProperties: true
+              jsonapi:
+                description: An object describing the server's implementation
+                type: object
+                properties:
+                  version:
+                    type: string
+                  meta:
+                    description: >-
+                      Non-standard meta-information that can not be represented
+                      as an attribute or relationship.
+                    type: object
+                    additionalProperties: true
+                additionalProperties: false
+            additionalProperties: true
+  /taxonomy/lawyers/{entity}:
+    get:
+      summary: View (Taxonomy term - Lawyers)
+      description: >-
+        <em class="placeholder"><a
+        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
+        for the taxonomy_term--lawyers resource type. The individual endpoint
+        contains a <em class="placeholder"><a
+        href="http://jsonapi.org/format/#document-resource-objects">resource
+        object</a></em> with the data for a particular resource or entity.
+      parameters:
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the taxonomy_term lawyers
+      tags:
+        - Taxonomy term - Lawyers
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/taxonomy_term--lawyers'
