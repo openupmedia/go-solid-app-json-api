@@ -4,7 +4,7 @@ schemes:
 info:
   description: This is a JSON API compliant implementation
   title: Go Solid - JSON API
-  version: '1.0.0'
+  version: 1.0.0
 host: dev-app.go-solid.be
 basePath: /connect/api
 securityDefinitions:
@@ -65,9 +65,7 @@ definitions:
       - data
     properties:
       data:
-        description: >-
-          \"Resource objects\" appear in a JSON:API document to represent
-          resources.
+        description: \"Resource objects\" appear in a JSON:API document to represent resources.
         type: object
         required:
           - type
@@ -316,9 +314,7 @@ definitions:
           links:
             type: object
             additionalProperties:
-              description: >-
-                A link **MUST** be represented as either: a string containing
-                the link's URL or a link object .
+              description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
               type: object
               required:
                 - href
@@ -328,30 +324,22 @@ definitions:
                   type: string
                   format: uri - reference
                 meta:
-                  description: >-
-                    Non-standard meta-information that can not be represented as
-                    an attribute or relationship.
+                  description: Non-standard meta-information that can not be represented as an attribute or relationship.
                   type: object
                   additionalProperties: true
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
       meta:
-        description: >-
-          Non-standard meta-information that can not be represented as an
-          attribute or relationship.
+        description: Non-standard meta-information that can not be represented as an attribute or relationship.
         type: object
         additionalProperties: true
       links:
         type: object
         additionalProperties:
-          description: >-
-            A link **MUST** be represented as either: a string containing the
-            link's URL or a link object .
+          description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
           type: object
           required:
             - href
@@ -361,9 +349,7 @@ definitions:
               type: string
               format: uri - reference
             meta:
-              description: >-
-                Non-standard meta-information that can not be represented as an
-                attribute or relationship.
+              description: Non-standard meta-information that can not be represented as an attribute or relationship.
               type: object
               additionalProperties: true
       jsonapi:
@@ -373,9 +359,7 @@ definitions:
           version:
             type: string
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
@@ -388,9 +372,7 @@ definitions:
       - data
     properties:
       data:
-        description: >-
-          \"Resource objects\" appear in a JSON:API document to represent
-          resources.
+        description: \"Resource objects\" appear in a JSON:API document to represent resources.
         type: object
         required:
           - type
@@ -575,9 +557,7 @@ definitions:
           links:
             type: object
             additionalProperties:
-              description: >-
-                A link **MUST** be represented as either: a string containing
-                the link's URL or a link object .
+              description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
               type: object
               required:
                 - href
@@ -587,30 +567,22 @@ definitions:
                   type: string
                   format: uri - reference
                 meta:
-                  description: >-
-                    Non-standard meta-information that can not be represented as
-                    an attribute or relationship.
+                  description: Non-standard meta-information that can not be represented as an attribute or relationship.
                   type: object
                   additionalProperties: true
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
       meta:
-        description: >-
-          Non-standard meta-information that can not be represented as an
-          attribute or relationship.
+        description: Non-standard meta-information that can not be represented as an attribute or relationship.
         type: object
         additionalProperties: true
       links:
         type: object
         additionalProperties:
-          description: >-
-            A link **MUST** be represented as either: a string containing the
-            link's URL or a link object .
+          description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
           type: object
           required:
             - href
@@ -620,9 +592,7 @@ definitions:
               type: string
               format: uri - reference
             meta:
-              description: >-
-                Non-standard meta-information that can not be represented as an
-                attribute or relationship.
+              description: Non-standard meta-information that can not be represented as an attribute or relationship.
               type: object
               additionalProperties: true
       jsonapi:
@@ -632,9 +602,7 @@ definitions:
           version:
             type: string
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
@@ -647,9 +615,7 @@ definitions:
       - data
     properties:
       data:
-        description: >-
-          \"Resource objects\" appear in a JSON:API document to represent
-          resources.
+        description: \"Resource objects\" appear in a JSON:API document to represent resources.
         type: object
         required:
           - type
@@ -770,9 +736,7 @@ definitions:
           links:
             type: object
             additionalProperties:
-              description: >-
-                A link **MUST** be represented as either: a string containing
-                the link's URL or a link object .
+              description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
               type: object
               required:
                 - href
@@ -782,30 +746,22 @@ definitions:
                   type: string
                   format: uri - reference
                 meta:
-                  description: >-
-                    Non-standard meta-information that can not be represented as
-                    an attribute or relationship.
+                  description: Non-standard meta-information that can not be represented as an attribute or relationship.
                   type: object
                   additionalProperties: true
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
       meta:
-        description: >-
-          Non-standard meta-information that can not be represented as an
-          attribute or relationship.
+        description: Non-standard meta-information that can not be represented as an attribute or relationship.
         type: object
         additionalProperties: true
       links:
         type: object
         additionalProperties:
-          description: >-
-            A link **MUST** be represented as either: a string containing the
-            link's URL or a link object .
+          description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
           type: object
           required:
             - href
@@ -815,9 +771,7 @@ definitions:
               type: string
               format: uri - reference
             meta:
-              description: >-
-                Non-standard meta-information that can not be represented as an
-                attribute or relationship.
+              description: Non-standard meta-information that can not be represented as an attribute or relationship.
               type: object
               additionalProperties: true
       jsonapi:
@@ -827,9 +781,7 @@ definitions:
           version:
             type: string
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
@@ -842,9 +794,7 @@ definitions:
       - data
     properties:
       data:
-        description: >-
-          \"Resource objects\" appear in a JSON:API document to represent
-          resources.
+        description: \"Resource objects\" appear in a JSON:API document to represent resources.
         type: object
         required:
           - type
@@ -941,9 +891,7 @@ definitions:
           links:
             type: object
             additionalProperties:
-              description: >-
-                A link **MUST** be represented as either: a string containing
-                the link's URL or a link object .
+              description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
               type: object
               required:
                 - href
@@ -953,30 +901,22 @@ definitions:
                   type: string
                   format: uri - reference
                 meta:
-                  description: >-
-                    Non-standard meta-information that can not be represented as
-                    an attribute or relationship.
+                  description: Non-standard meta-information that can not be represented as an attribute or relationship.
                   type: object
                   additionalProperties: true
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
       meta:
-        description: >-
-          Non-standard meta-information that can not be represented as an
-          attribute or relationship.
+        description: Non-standard meta-information that can not be represented as an attribute or relationship.
         type: object
         additionalProperties: true
       links:
         type: object
         additionalProperties:
-          description: >-
-            A link **MUST** be represented as either: a string containing the
-            link's URL or a link object .
+          description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
           type: object
           required:
             - href
@@ -986,9 +926,7 @@ definitions:
               type: string
               format: uri - reference
             meta:
-              description: >-
-                Non-standard meta-information that can not be represented as an
-                attribute or relationship.
+              description: Non-standard meta-information that can not be represented as an attribute or relationship.
               type: object
               additionalProperties: true
       jsonapi:
@@ -998,9 +936,7 @@ definitions:
           version:
             type: string
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
@@ -1013,9 +949,7 @@ definitions:
       - data
     properties:
       data:
-        description: >-
-          \"Resource objects\" appear in a JSON:API document to represent
-          resources.
+        description: \"Resource objects\" appear in a JSON:API document to represent resources.
         type: object
         required:
           - type
@@ -1082,9 +1016,7 @@ definitions:
           links:
             type: object
             additionalProperties:
-              description: >-
-                A link **MUST** be represented as either: a string containing
-                the link's URL or a link object .
+              description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
               type: object
               required:
                 - href
@@ -1094,30 +1026,22 @@ definitions:
                   type: string
                   format: uri - reference
                 meta:
-                  description: >-
-                    Non-standard meta-information that can not be represented as
-                    an attribute or relationship.
+                  description: Non-standard meta-information that can not be represented as an attribute or relationship.
                   type: object
                   additionalProperties: true
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
       meta:
-        description: >-
-          Non-standard meta-information that can not be represented as an
-          attribute or relationship.
+        description: Non-standard meta-information that can not be represented as an attribute or relationship.
         type: object
         additionalProperties: true
       links:
         type: object
         additionalProperties:
-          description: >-
-            A link **MUST** be represented as either: a string containing the
-            link's URL or a link object .
+          description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
           type: object
           required:
             - href
@@ -1127,9 +1051,7 @@ definitions:
               type: string
               format: uri - reference
             meta:
-              description: >-
-                Non-standard meta-information that can not be represented as an
-                attribute or relationship.
+              description: Non-standard meta-information that can not be represented as an attribute or relationship.
               type: object
               additionalProperties: true
       jsonapi:
@@ -1139,9 +1061,7 @@ definitions:
           version:
             type: string
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
@@ -1154,9 +1074,7 @@ definitions:
       - data
     properties:
       data:
-        description: >-
-          \"Resource objects\" appear in a JSON:API document to represent
-          resources.
+        description: \"Resource objects\" appear in a JSON:API document to represent resources.
         type: object
         required:
           - type
@@ -1268,9 +1186,7 @@ definitions:
           links:
             type: object
             additionalProperties:
-              description: >-
-                A link **MUST** be represented as either: a string containing
-                the link's URL or a link object .
+              description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
               type: object
               required:
                 - href
@@ -1280,30 +1196,22 @@ definitions:
                   type: string
                   format: uri - reference
                 meta:
-                  description: >-
-                    Non-standard meta-information that can not be represented as
-                    an attribute or relationship.
+                  description: Non-standard meta-information that can not be represented as an attribute or relationship.
                   type: object
                   additionalProperties: true
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
       meta:
-        description: >-
-          Non-standard meta-information that can not be represented as an
-          attribute or relationship.
+        description: Non-standard meta-information that can not be represented as an attribute or relationship.
         type: object
         additionalProperties: true
       links:
         type: object
         additionalProperties:
-          description: >-
-            A link **MUST** be represented as either: a string containing the
-            link's URL or a link object .
+          description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
           type: object
           required:
             - href
@@ -1313,9 +1221,7 @@ definitions:
               type: string
               format: uri - reference
             meta:
-              description: >-
-                Non-standard meta-information that can not be represented as an
-                attribute or relationship.
+              description: Non-standard meta-information that can not be represented as an attribute or relationship.
               type: object
               additionalProperties: true
       jsonapi:
@@ -1325,9 +1231,7 @@ definitions:
           version:
             type: string
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
@@ -1340,9 +1244,7 @@ definitions:
       - data
     properties:
       data:
-        description: >-
-          \"Resource objects\" appear in a JSON:API document to represent
-          resources.
+        description: \"Resource objects\" appear in a JSON:API document to represent resources.
         type: object
         required:
           - type
@@ -1404,18 +1306,13 @@ definitions:
                 format: utc-millisec
                 description: The timestamp that the file was last changed.
           relationships:
-            description: >-
-              Members of the relationships object('relationships\") represent
-              references from the resource object in which it's defined to other
-              resource objects .
+            description: Members of the relationships object('relationships\") represent references from the resource object in which it's defined to other resource objects .
             type: object
             additionalProperties: false
           links:
             type: object
             additionalProperties:
-              description: >-
-                A link **MUST** be represented as either: a string containing
-                the link's URL or a link object .
+              description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
               type: object
               required:
                 - href
@@ -1425,30 +1322,22 @@ definitions:
                   type: string
                   format: uri - reference
                 meta:
-                  description: >-
-                    Non-standard meta-information that can not be represented as
-                    an attribute or relationship.
+                  description: Non-standard meta-information that can not be represented as an attribute or relationship.
                   type: object
                   additionalProperties: true
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
       meta:
-        description: >-
-          Non-standard meta-information that can not be represented as an
-          attribute or relationship.
+        description: Non-standard meta-information that can not be represented as an attribute or relationship.
         type: object
         additionalProperties: true
       links:
         type: object
         additionalProperties:
-          description: >-
-            A link **MUST** be represented as either: a string containing the
-            link's URL or a link object .
+          description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
           type: object
           required:
             - href
@@ -1458,9 +1347,7 @@ definitions:
               type: string
               format: uri - reference
             meta:
-              description: >-
-                Non-standard meta-information that can not be represented as an
-                attribute or relationship.
+              description: Non-standard meta-information that can not be represented as an attribute or relationship.
               type: object
               additionalProperties: true
       jsonapi:
@@ -1470,26 +1357,20 @@ definitions:
           version:
             type: string
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
     additionalProperties: true
   taxonomy_term--countries:
     title: taxonomy_term:countries Schema
-    description: >-
-      Describes the payload for 'taxonomy_term' entities of the 'countries'
-      bundle.
+    description: Describes the payload for 'taxonomy_term' entities of the 'countries' bundle.
     type: object
     required:
       - data
     properties:
       data:
-        description: >-
-          \"Resource objects\" appear in a JSON:API document to represent
-          resources.
+        description: \"Resource objects\" appear in a JSON:API document to represent resources.
         type: object
         required:
           - type
@@ -1558,18 +1439,13 @@ definitions:
               - name
               - field_country_abbreviation
           relationships:
-            description: >-
-              Members of the relationships object('relationships\") represent
-              references from the resource object in which it's defined to other
-              resource objects .
+            description: Members of the relationships object('relationships\") represent references from the resource object in which it's defined to other resource objects .
             type: object
             additionalProperties: false
           links:
             type: object
             additionalProperties:
-              description: >-
-                A link **MUST** be represented as either: a string containing
-                the link's URL or a link object .
+              description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
               type: object
               required:
                 - href
@@ -1579,30 +1455,22 @@ definitions:
                   type: string
                   format: uri - reference
                 meta:
-                  description: >-
-                    Non-standard meta-information that can not be represented as
-                    an attribute or relationship.
+                  description: Non-standard meta-information that can not be represented as an attribute or relationship.
                   type: object
                   additionalProperties: true
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
       meta:
-        description: >-
-          Non-standard meta-information that can not be represented as an
-          attribute or relationship.
+        description: Non-standard meta-information that can not be represented as an attribute or relationship.
         type: object
         additionalProperties: true
       links:
         type: object
         additionalProperties:
-          description: >-
-            A link **MUST** be represented as either: a string containing the
-            link's URL or a link object .
+          description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
           type: object
           required:
             - href
@@ -1612,9 +1480,7 @@ definitions:
               type: string
               format: uri - reference
             meta:
-              description: >-
-                Non-standard meta-information that can not be represented as an
-                attribute or relationship.
+              description: Non-standard meta-information that can not be represented as an attribute or relationship.
               type: object
               additionalProperties: true
       jsonapi:
@@ -1624,26 +1490,20 @@ definitions:
           version:
             type: string
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
     additionalProperties: true
   taxonomy_term--lawyers:
     title: taxonomy_term:lawyers Schema
-    description: >-
-      Describes the payload for 'taxonomy_term' entities of the 'lawyers'
-      bundle.
+    description: Describes the payload for 'taxonomy_term' entities of the 'lawyers' bundle.
     type: object
     required:
       - data
     properties:
       data:
-        description: >-
-          \"Resource objects\" appear in a JSON:API document to represent
-          resources.
+        description: \"Resource objects\" appear in a JSON:API document to represent resources.
         type: object
         required:
           - type
@@ -1711,18 +1571,13 @@ definitions:
             required:
               - name
           relationships:
-            description: >-
-              Members of the relationships object('relationships\") represent
-              references from the resource object in which it's defined to other
-              resource objects .
+            description: Members of the relationships object('relationships\") represent references from the resource object in which it's defined to other resource objects .
             type: object
             additionalProperties: false
           links:
             type: object
             additionalProperties:
-              description: >-
-                A link **MUST** be represented as either: a string containing
-                the link's URL or a link object .
+              description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
               type: object
               required:
                 - href
@@ -1732,30 +1587,22 @@ definitions:
                   type: string
                   format: uri - reference
                 meta:
-                  description: >-
-                    Non-standard meta-information that can not be represented as
-                    an attribute or relationship.
+                  description: Non-standard meta-information that can not be represented as an attribute or relationship.
                   type: object
                   additionalProperties: true
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
       meta:
-        description: >-
-          Non-standard meta-information that can not be represented as an
-          attribute or relationship.
+        description: Non-standard meta-information that can not be represented as an attribute or relationship.
         type: object
         additionalProperties: true
       links:
         type: object
         additionalProperties:
-          description: >-
-            A link **MUST** be represented as either: a string containing the
-            link's URL or a link object .
+          description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
           type: object
           required:
             - href
@@ -1765,9 +1612,7 @@ definitions:
               type: string
               format: uri - reference
             meta:
-              description: >-
-                Non-standard meta-information that can not be represented as an
-                attribute or relationship.
+              description: Non-standard meta-information that can not be represented as an attribute or relationship.
               type: object
               additionalProperties: true
       jsonapi:
@@ -1777,9 +1622,7 @@ definitions:
           version:
             type: string
           meta:
-            description: >-
-              Non-standard meta-information that can not be represented as an
-              attribute or relationship.
+            description: Non-standard meta-information that can not be represented as an attribute or relationship.
             type: object
             additionalProperties: true
         additionalProperties: false
@@ -1792,70 +1635,39 @@ paths:
   /dossier:
     get:
       summary: List (Content - Dossier)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
-        for the node--dfile resource type. Collections are a list of <em
-        class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        objects</a></em> for a particular resource type. In the JSON API module
-        for Drupal all collections are homogeneous, which means that all the
-        items in a collection are of the same type.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em> for the node--dfile resource type. Collections are a list of <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource objects</a></em> for a particular resource type. In the JSON API module for Drupal all collections are homogeneous, which means that all the items in a collection are of the same type.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: filter
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module has some of the most robust and feature-rich
-            filtering features around. All of that power comes with a bit of a
-            learning curve though. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
-            more in the documentation</a>.
+          description: The JSON:API module has some of the most robust and feature-rich filtering features around. All of that power comes with a bit of a learning curve though. <a href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn more in the documentation</a>.
         - name: sort
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module allows you to sort collections based on
-            properties in the resource or in nested resources. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
-            more in the documentation</a>.
+          description: The JSON:API module allows you to sort collections based on properties in the resource or in nested resources. <a href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn more in the documentation</a>.
         - name: page
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            Pagination can be a deceptively complex topic. It's easy to fall
-            into traps and not follow best-practices. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
-            more in the documentation</a>.
+          description: Pagination can be a deceptively complex topic. It's easy to fall into traps and not follow best-practices. <a href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn more in the documentation</a>.
         - name: include
           in: query
           type: string
           required: false
-          description: >-
-            Embed related entities in the response. For example: use a query
-            string like <code>?include=comments.author</code> to include all the
-            entities referenced by <code>comments</code> and all the entities
-            referenced by <code>author</code> on those entities!. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
-            more in the documentation</a>.
+          description: 'Embed related entities in the response. For example: use a query string like <code>?include=comments.author</code> to include all the entities referenced by <code>comments</code> and all the entities referenced by <code>author</code> on those entities!. <a href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn more in the documentation</a>.'
       tags:
         - Content - Dossier
       responses:
@@ -1873,17 +1685,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--dfile/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -1893,9 +1701,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -1905,9 +1711,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -1938,17 +1742,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--dfile/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -1958,9 +1758,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -1970,9 +1768,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -1980,23 +1776,13 @@ paths:
   /dossier/{entity}:
     get:
       summary: View (Content - Dossier)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
-        for the node--dfile resource type. The individual endpoint contains a
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular resource or entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em> for the node--dfile resource type. The individual endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -2049,25 +1835,13 @@ paths:
   /dossier/{entity}/invoices:
     get:
       summary: 'Related: invoices (Content - Invoice)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the node--dfileline resource type through the <em
-        class="placeholder">invoices</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the node--dfileline resource type through the <em class="placeholder">invoices</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -2081,9 +1855,7 @@ paths:
           description: successful operation
           schema:
             title: node:dfileline Schema
-            description: >-
-              Describes the payload for 'node' entities of the 'dfileline'
-              bundle.
+            description: Describes the payload for 'node' entities of the 'dfileline' bundle.
             type: object
             required:
               - data
@@ -2093,17 +1865,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--dfileline/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -2113,9 +1881,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -2125,9 +1891,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -2135,25 +1899,13 @@ paths:
   /dossier/{entity}/payments:
     get:
       summary: 'Related: payments (Content - Payment)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the node--payment resource type through the <em
-        class="placeholder">payments</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the node--payment resource type through the <em class="placeholder">payments</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -2177,17 +1929,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--payment/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -2197,9 +1945,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -2209,9 +1955,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -2219,70 +1963,39 @@ paths:
   /invoice:
     get:
       summary: List (Content - Invoice)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
-        for the node--dfileline resource type. Collections are a list of <em
-        class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        objects</a></em> for a particular resource type. In the JSON API module
-        for Drupal all collections are homogeneous, which means that all the
-        items in a collection are of the same type.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em> for the node--dfileline resource type. Collections are a list of <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource objects</a></em> for a particular resource type. In the JSON API module for Drupal all collections are homogeneous, which means that all the items in a collection are of the same type.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: filter
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module has some of the most robust and feature-rich
-            filtering features around. All of that power comes with a bit of a
-            learning curve though. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
-            more in the documentation</a>.
+          description: The JSON:API module has some of the most robust and feature-rich filtering features around. All of that power comes with a bit of a learning curve though. <a href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn more in the documentation</a>.
         - name: sort
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module allows you to sort collections based on
-            properties in the resource or in nested resources. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
-            more in the documentation</a>.
+          description: The JSON:API module allows you to sort collections based on properties in the resource or in nested resources. <a href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn more in the documentation</a>.
         - name: page
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            Pagination can be a deceptively complex topic. It's easy to fall
-            into traps and not follow best-practices. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
-            more in the documentation</a>.
+          description: Pagination can be a deceptively complex topic. It's easy to fall into traps and not follow best-practices. <a href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn more in the documentation</a>.
         - name: include
           in: query
           type: string
           required: false
-          description: >-
-            Embed related entities in the response. For example: use a query
-            string like <code>?include=comments.author</code> to include all the
-            entities referenced by <code>comments</code> and all the entities
-            referenced by <code>author</code> on those entities!. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
-            more in the documentation</a>.
+          description: 'Embed related entities in the response. For example: use a query string like <code>?include=comments.author</code> to include all the entities referenced by <code>comments</code> and all the entities referenced by <code>author</code> on those entities!. <a href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn more in the documentation</a>.'
       tags:
         - Content - Invoice
       responses:
@@ -2290,9 +2003,7 @@ paths:
           description: successful operation
           schema:
             title: node:dfileline Schema
-            description: >-
-              Describes the payload for 'node' entities of the 'dfileline'
-              bundle.
+            description: Describes the payload for 'node' entities of the 'dfileline' bundle.
             type: object
             required:
               - data
@@ -2302,17 +2013,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--dfileline/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -2322,9 +2029,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -2334,9 +2039,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -2357,9 +2060,7 @@ paths:
           description: successful operation
           schema:
             title: node:dfileline Schema
-            description: >-
-              Describes the payload for 'node' entities of the 'dfileline'
-              bundle.
+            description: Describes the payload for 'node' entities of the 'dfileline' bundle.
             type: object
             required:
               - data
@@ -2369,17 +2070,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--dfileline/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -2389,9 +2086,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -2401,9 +2096,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -2411,23 +2104,13 @@ paths:
   /invoice/{entity}:
     get:
       summary: View (Content - Invoice)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
-        for the node--dfileline resource type. The individual endpoint contains
-        a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular resource or entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em> for the node--dfileline resource type. The individual endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -2480,25 +2163,13 @@ paths:
   /invoice/{entity}/conditions_file:
     get:
       summary: 'Related: conditions_file (File)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the file--file resource type through the <em
-        class="placeholder">conditions_file</em> relationship. The related
-        endpoint contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the file--file resource type through the <em class="placeholder">conditions_file</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -2515,25 +2186,13 @@ paths:
   /invoice/{entity}/creditnotes:
     get:
       summary: 'Related: creditnotes (Content - Credit note)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the node--credit_note resource type through the <em
-        class="placeholder">creditnotes</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the node--credit_note resource type through the <em class="placeholder">creditnotes</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -2547,9 +2206,7 @@ paths:
           description: successful operation
           schema:
             title: node:credit_note Schema
-            description: >-
-              Describes the payload for 'node' entities of the 'credit_note'
-              bundle.
+            description: Describes the payload for 'node' entities of the 'credit_note' bundle.
             type: object
             required:
               - data
@@ -2559,17 +2216,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--credit_note/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -2579,9 +2232,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -2591,9 +2242,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -2601,25 +2250,13 @@ paths:
   /invoice/{entity}/dossier_id:
     get:
       summary: 'Related: dossier_id (Content - Dossier)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the node--dfile resource type through the <em
-        class="placeholder">dossier_id</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the node--dfile resource type through the <em class="placeholder">dossier_id</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -2636,25 +2273,13 @@ paths:
   /invoice/{entity}/invoice_file:
     get:
       summary: 'Related: invoice_file (File)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the file--file resource type through the <em
-        class="placeholder">invoice_file</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the file--file resource type through the <em class="placeholder">invoice_file</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -2671,25 +2296,13 @@ paths:
   /invoice/{entity}/payment_id:
     get:
       summary: 'Related: payment_id (Content - Payment)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the node--payment resource type through the <em
-        class="placeholder">payment_id</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the node--payment resource type through the <em class="placeholder">payment_id</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -2713,17 +2326,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--payment/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -2733,9 +2342,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -2745,9 +2352,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -2755,25 +2360,13 @@ paths:
   /invoice/{entity}/reminder_file:
     get:
       summary: 'Related: reminder_file (File)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the file--file resource type through the <em
-        class="placeholder">reminder_file</em> relationship. The related
-        endpoint contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the file--file resource type through the <em class="placeholder">reminder_file</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -2790,70 +2383,39 @@ paths:
   /creditnote:
     get:
       summary: List (Content - Credit note)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
-        for the node--credit_note resource type. Collections are a list of <em
-        class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        objects</a></em> for a particular resource type. In the JSON API module
-        for Drupal all collections are homogeneous, which means that all the
-        items in a collection are of the same type.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em> for the node--credit_note resource type. Collections are a list of <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource objects</a></em> for a particular resource type. In the JSON API module for Drupal all collections are homogeneous, which means that all the items in a collection are of the same type.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: filter
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module has some of the most robust and feature-rich
-            filtering features around. All of that power comes with a bit of a
-            learning curve though. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
-            more in the documentation</a>.
+          description: The JSON:API module has some of the most robust and feature-rich filtering features around. All of that power comes with a bit of a learning curve though. <a href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn more in the documentation</a>.
         - name: sort
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module allows you to sort collections based on
-            properties in the resource or in nested resources. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
-            more in the documentation</a>.
+          description: The JSON:API module allows you to sort collections based on properties in the resource or in nested resources. <a href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn more in the documentation</a>.
         - name: page
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            Pagination can be a deceptively complex topic. It's easy to fall
-            into traps and not follow best-practices. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
-            more in the documentation</a>.
+          description: Pagination can be a deceptively complex topic. It's easy to fall into traps and not follow best-practices. <a href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn more in the documentation</a>.
         - name: include
           in: query
           type: string
           required: false
-          description: >-
-            Embed related entities in the response. For example: use a query
-            string like <code>?include=comments.author</code> to include all the
-            entities referenced by <code>comments</code> and all the entities
-            referenced by <code>author</code> on those entities!. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
-            more in the documentation</a>.
+          description: 'Embed related entities in the response. For example: use a query string like <code>?include=comments.author</code> to include all the entities referenced by <code>comments</code> and all the entities referenced by <code>author</code> on those entities!. <a href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn more in the documentation</a>.'
       tags:
         - Content - Credit note
       responses:
@@ -2861,9 +2423,7 @@ paths:
           description: successful operation
           schema:
             title: node:credit_note Schema
-            description: >-
-              Describes the payload for 'node' entities of the 'credit_note'
-              bundle.
+            description: Describes the payload for 'node' entities of the 'credit_note' bundle.
             type: object
             required:
               - data
@@ -2873,17 +2433,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--credit_note/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -2893,9 +2449,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -2905,9 +2459,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -2931,23 +2483,13 @@ paths:
   /creditnote/{entity}:
     get:
       summary: View (Content - Credit note)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
-        for the node--credit_note resource type. The individual endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular resource or entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em> for the node--credit_note resource type. The individual endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -3000,25 +2542,13 @@ paths:
   /creditnote/{entity}/dossier_id:
     get:
       summary: 'Related: dossier_id (Content - Dossier)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the node--dfile resource type through the <em
-        class="placeholder">dossier_id</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the node--dfile resource type through the <em class="placeholder">dossier_id</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -3035,25 +2565,13 @@ paths:
   /creditnote/{entity}/invoice_file:
     get:
       summary: 'Related: invoice_file (File)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the file--file resource type through the <em
-        class="placeholder">invoice_file</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the file--file resource type through the <em class="placeholder">invoice_file</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -3070,25 +2588,13 @@ paths:
   /creditnote/{entity}/invoice_id:
     get:
       summary: 'Related: invoice_id (Content - Invoice)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the node--dfileline resource type through the <em
-        class="placeholder">invoice_id</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the node--dfileline resource type through the <em class="placeholder">invoice_id</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -3105,70 +2611,39 @@ paths:
   /payment:
     get:
       summary: List (Content - Payment)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
-        for the node--payment resource type. Collections are a list of <em
-        class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        objects</a></em> for a particular resource type. In the JSON API module
-        for Drupal all collections are homogeneous, which means that all the
-        items in a collection are of the same type.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em> for the node--payment resource type. Collections are a list of <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource objects</a></em> for a particular resource type. In the JSON API module for Drupal all collections are homogeneous, which means that all the items in a collection are of the same type.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: filter
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module has some of the most robust and feature-rich
-            filtering features around. All of that power comes with a bit of a
-            learning curve though. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
-            more in the documentation</a>.
+          description: The JSON:API module has some of the most robust and feature-rich filtering features around. All of that power comes with a bit of a learning curve though. <a href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn more in the documentation</a>.
         - name: sort
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module allows you to sort collections based on
-            properties in the resource or in nested resources. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
-            more in the documentation</a>.
+          description: The JSON:API module allows you to sort collections based on properties in the resource or in nested resources. <a href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn more in the documentation</a>.
         - name: page
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            Pagination can be a deceptively complex topic. It's easy to fall
-            into traps and not follow best-practices. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
-            more in the documentation</a>.
+          description: Pagination can be a deceptively complex topic. It's easy to fall into traps and not follow best-practices. <a href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn more in the documentation</a>.
         - name: include
           in: query
           type: string
           required: false
-          description: >-
-            Embed related entities in the response. For example: use a query
-            string like <code>?include=comments.author</code> to include all the
-            entities referenced by <code>comments</code> and all the entities
-            referenced by <code>author</code> on those entities!. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
-            more in the documentation</a>.
+          description: 'Embed related entities in the response. For example: use a query string like <code>?include=comments.author</code> to include all the entities referenced by <code>comments</code> and all the entities referenced by <code>author</code> on those entities!. <a href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn more in the documentation</a>.'
       tags:
         - Content - Payment
       responses:
@@ -3186,17 +2661,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--payment/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -3206,9 +2677,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -3218,9 +2687,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -3251,17 +2718,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--payment/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -3271,9 +2734,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -3283,9 +2744,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -3293,23 +2752,13 @@ paths:
   /payment/{entity}:
     get:
       summary: View (Content - Payment)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
-        for the node--payment resource type. The individual endpoint contains a
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular resource or entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em> for the node--payment resource type. The individual endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -3362,25 +2811,13 @@ paths:
   /payment/{entity}/dossier_id:
     get:
       summary: 'Related: dossier_id (Content - Dossier)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the node--dfile resource type through the <em
-        class="placeholder">dossier_id</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the node--dfile resource type through the <em class="placeholder">dossier_id</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -3397,25 +2834,13 @@ paths:
   /payment/{entity}/invoice_id:
     get:
       summary: 'Related: invoice_id (Content - Invoice)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the node--dfileline resource type through the <em
-        class="placeholder">invoice_id</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the node--dfileline resource type through the <em class="placeholder">invoice_id</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -3432,70 +2857,39 @@ paths:
   /shutdown:
     get:
       summary: List (Content - dfile cancel)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
-        for the node--dfile_cancel resource type. Collections are a list of <em
-        class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        objects</a></em> for a particular resource type. In the JSON API module
-        for Drupal all collections are homogeneous, which means that all the
-        items in a collection are of the same type.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em> for the node--dfile_cancel resource type. Collections are a list of <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource objects</a></em> for a particular resource type. In the JSON API module for Drupal all collections are homogeneous, which means that all the items in a collection are of the same type.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: filter
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module has some of the most robust and feature-rich
-            filtering features around. All of that power comes with a bit of a
-            learning curve though. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
-            more in the documentation</a>.
+          description: The JSON:API module has some of the most robust and feature-rich filtering features around. All of that power comes with a bit of a learning curve though. <a href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn more in the documentation</a>.
         - name: sort
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module allows you to sort collections based on
-            properties in the resource or in nested resources. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
-            more in the documentation</a>.
+          description: The JSON:API module allows you to sort collections based on properties in the resource or in nested resources. <a href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn more in the documentation</a>.
         - name: page
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            Pagination can be a deceptively complex topic. It's easy to fall
-            into traps and not follow best-practices. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
-            more in the documentation</a>.
+          description: Pagination can be a deceptively complex topic. It's easy to fall into traps and not follow best-practices. <a href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn more in the documentation</a>.
         - name: include
           in: query
           type: string
           required: false
-          description: >-
-            Embed related entities in the response. For example: use a query
-            string like <code>?include=comments.author</code> to include all the
-            entities referenced by <code>comments</code> and all the entities
-            referenced by <code>author</code> on those entities!. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
-            more in the documentation</a>.
+          description: 'Embed related entities in the response. For example: use a query string like <code>?include=comments.author</code> to include all the entities referenced by <code>comments</code> and all the entities referenced by <code>author</code> on those entities!. <a href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn more in the documentation</a>.'
       tags:
         - Content - dfile cancel
       responses:
@@ -3503,9 +2897,7 @@ paths:
           description: successful operation
           schema:
             title: node:dfile_cancel Schema
-            description: >-
-              Describes the payload for 'node' entities of the 'dfile_cancel'
-              bundle.
+            description: Describes the payload for 'node' entities of the 'dfile_cancel' bundle.
             type: object
             required:
               - data
@@ -3515,17 +2907,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--dfile_cancel/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -3535,9 +2923,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -3547,9 +2933,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -3570,9 +2954,7 @@ paths:
           description: successful operation
           schema:
             title: node:dfile_cancel Schema
-            description: >-
-              Describes the payload for 'node' entities of the 'dfile_cancel'
-              bundle.
+            description: Describes the payload for 'node' entities of the 'dfile_cancel' bundle.
             type: object
             required:
               - data
@@ -3582,17 +2964,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--dfile_cancel/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -3602,9 +2980,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -3614,9 +2990,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -3624,23 +2998,13 @@ paths:
   /shutdown/{entity}:
     get:
       summary: View (Content - dfile cancel)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
-        for the node--dfile_cancel resource type. The individual endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular resource or entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em> for the node--dfile_cancel resource type. The individual endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -3693,25 +3057,13 @@ paths:
   /shutdown/{entity}/dossier_id:
     get:
       summary: 'Related: dossier_id (Content - Dossier)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the node--dfile resource type through the <em
-        class="placeholder">dossier_id</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the node--dfile resource type through the <em class="placeholder">dossier_id</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -3725,108 +3077,42 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/node--dfile'
-  /company/{entity}/address_country:
-    get:
-      summary: 'Related: address_country (Taxonomy term - Countries)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the taxonomy_term--countries resource type through the <em
-        class="placeholder">address_country</em> relationship. The related
-        endpoint contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
-      parameters:
-        - name: resourceVersion
-          in: query
-          type: string
-          required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
-        - name: entity
-          required: true
-          in: path
-          type: string
-          format: uuid
-          description: The uuid of the node pfile
-      tags:
-        - Content - Company
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/taxonomy_term--countries'
   /company:
     get:
       summary: List (Content - Company)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
-        for the node--pfile resource type. Collections are a list of <em
-        class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        objects</a></em> for a particular resource type. In the JSON API module
-        for Drupal all collections are homogeneous, which means that all the
-        items in a collection are of the same type.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em> for the node--pfile resource type. Collections are a list of <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource objects</a></em> for a particular resource type. In the JSON API module for Drupal all collections are homogeneous, which means that all the items in a collection are of the same type.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: filter
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module has some of the most robust and feature-rich
-            filtering features around. All of that power comes with a bit of a
-            learning curve though. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
-            more in the documentation</a>.
+          description: The JSON:API module has some of the most robust and feature-rich filtering features around. All of that power comes with a bit of a learning curve though. <a href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn more in the documentation</a>.
         - name: sort
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module allows you to sort collections based on
-            properties in the resource or in nested resources. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
-            more in the documentation</a>.
+          description: The JSON:API module allows you to sort collections based on properties in the resource or in nested resources. <a href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn more in the documentation</a>.
         - name: page
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            Pagination can be a deceptively complex topic. It's easy to fall
-            into traps and not follow best-practices. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
-            more in the documentation</a>.
+          description: Pagination can be a deceptively complex topic. It's easy to fall into traps and not follow best-practices. <a href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn more in the documentation</a>.
         - name: include
           in: query
           type: string
           required: false
-          description: >-
-            Embed related entities in the response. For example: use a query
-            string like <code>?include=comments.author</code> to include all the
-            entities referenced by <code>comments</code> and all the entities
-            referenced by <code>author</code> on those entities!. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
-            more in the documentation</a>.
+          description: 'Embed related entities in the response. For example: use a query string like <code>?include=comments.author</code> to include all the entities referenced by <code>comments</code> and all the entities referenced by <code>author</code> on those entities!. <a href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn more in the documentation</a>.'
       tags:
         - Content - Company
       responses:
@@ -3844,17 +3130,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--pfile/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -3864,9 +3146,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -3876,9 +3156,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -3909,17 +3187,13 @@ paths:
                 items:
                   $ref: '#/definitions/node--pfile/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -3929,9 +3203,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -3941,9 +3213,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -3951,23 +3221,13 @@ paths:
   /company/{entity}:
     get:
       summary: View (Content - Company)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
-        for the node--pfile resource type. The individual endpoint contains a
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular resource or entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em> for the node--pfile resource type. The individual endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -4020,25 +3280,13 @@ paths:
   /company/{entity}/lawyer:
     get:
       summary: 'Related: lawyer (Taxonomy term - Lawyers)'
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for
-        the taxonomy_term--lawyers resource type through the <em
-        class="placeholder">lawyer</em> relationship. The related endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular related resource or
-        entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the taxonomy_term--lawyers resource type through the <em class="placeholder">lawyer</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
       parameters:
         - name: resourceVersion
           in: query
           type: string
           required: false
-          description: >-
-            The JSON:API module exposes entity revisions as resource versions.
-            <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn
-            more in the documentation</a>.
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
         - name: entity
           required: true
           in: path
@@ -4052,18 +3300,33 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/taxonomy_term--lawyers'
+  /company/{entity}/address_country:
+    get:
+      summary: 'Related: address_country (Taxonomy term - Countries)'
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Related endpoint</a></em> for the taxonomy_term--countries resource type through the <em class="placeholder">address_country</em> relationship. The related endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular related resource or entity.
+      parameters:
+        - name: resourceVersion
+          in: query
+          type: string
+          required: false
+          description: The JSON:API module exposes entity revisions as resource versions. <a href="https://www.drupal.org/docs/8/modules/jsonapi/revisions">Learn more in the documentation</a>.
+        - name: entity
+          required: true
+          in: path
+          type: string
+          format: uuid
+          description: The uuid of the node pfile
+      tags:
+        - Content - Company
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/taxonomy_term--countries'
   /file:
     get:
       summary: List (File)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
-        for the file--file resource type. Collections are a list of <em
-        class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        objects</a></em> for a particular resource type. In the JSON API module
-        for Drupal all collections are homogeneous, which means that all the
-        items in a collection are of the same type.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em> for the file--file resource type. Collections are a list of <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource objects</a></em> for a particular resource type. In the JSON API module for Drupal all collections are homogeneous, which means that all the items in a collection are of the same type.
       parameters:
         - name: filter
           in: query
@@ -4071,45 +3334,26 @@ paths:
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module has some of the most robust and feature-rich
-            filtering features around. All of that power comes with a bit of a
-            learning curve though. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
-            more in the documentation</a>.
+          description: The JSON:API module has some of the most robust and feature-rich filtering features around. All of that power comes with a bit of a learning curve though. <a href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn more in the documentation</a>.
         - name: sort
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module allows you to sort collections based on
-            properties in the resource or in nested resources. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
-            more in the documentation</a>.
+          description: The JSON:API module allows you to sort collections based on properties in the resource or in nested resources. <a href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn more in the documentation</a>.
         - name: page
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            Pagination can be a deceptively complex topic. It's easy to fall
-            into traps and not follow best-practices. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
-            more in the documentation</a>.
+          description: Pagination can be a deceptively complex topic. It's easy to fall into traps and not follow best-practices. <a href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn more in the documentation</a>.
         - name: include
           in: query
           type: string
           required: false
-          description: >-
-            Embed related entities in the response. For example: use a query
-            string like <code>?include=comments.author</code> to include all the
-            entities referenced by <code>comments</code> and all the entities
-            referenced by <code>author</code> on those entities!. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
-            more in the documentation</a>.
+          description: 'Embed related entities in the response. For example: use a query string like <code>?include=comments.author</code> to include all the entities referenced by <code>comments</code> and all the entities referenced by <code>author</code> on those entities!. <a href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn more in the documentation</a>.'
       tags:
         - File
       responses:
@@ -4127,17 +3371,13 @@ paths:
                 items:
                   $ref: '#/definitions/file--file/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -4147,9 +3387,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -4159,9 +3397,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -4186,13 +3422,7 @@ paths:
   /file/{entity}:
     get:
       summary: View (File)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
-        for the file--file resource type. The individual endpoint contains a <em
-        class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular resource or entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em> for the file--file resource type. The individual endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular resource or entity.
       parameters:
         - name: entity
           required: true
@@ -4232,15 +3462,7 @@ paths:
   /taxonomy/countries:
     get:
       summary: List (Taxonomy term - Countries)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
-        for the taxonomy_term--countries resource type. Collections are a list
-        of <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        objects</a></em> for a particular resource type. In the JSON API module
-        for Drupal all collections are homogeneous, which means that all the
-        items in a collection are of the same type.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em> for the taxonomy_term--countries resource type. Collections are a list of <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource objects</a></em> for a particular resource type. In the JSON API module for Drupal all collections are homogeneous, which means that all the items in a collection are of the same type.
       parameters:
         - name: filter
           in: query
@@ -4248,45 +3470,26 @@ paths:
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module has some of the most robust and feature-rich
-            filtering features around. All of that power comes with a bit of a
-            learning curve though. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
-            more in the documentation</a>.
+          description: The JSON:API module has some of the most robust and feature-rich filtering features around. All of that power comes with a bit of a learning curve though. <a href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn more in the documentation</a>.
         - name: sort
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module allows you to sort collections based on
-            properties in the resource or in nested resources. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
-            more in the documentation</a>.
+          description: The JSON:API module allows you to sort collections based on properties in the resource or in nested resources. <a href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn more in the documentation</a>.
         - name: page
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            Pagination can be a deceptively complex topic. It's easy to fall
-            into traps and not follow best-practices. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
-            more in the documentation</a>.
+          description: Pagination can be a deceptively complex topic. It's easy to fall into traps and not follow best-practices. <a href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn more in the documentation</a>.
         - name: include
           in: query
           type: string
           required: false
-          description: >-
-            Embed related entities in the response. For example: use a query
-            string like <code>?include=comments.author</code> to include all the
-            entities referenced by <code>comments</code> and all the entities
-            referenced by <code>author</code> on those entities!. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
-            more in the documentation</a>.
+          description: 'Embed related entities in the response. For example: use a query string like <code>?include=comments.author</code> to include all the entities referenced by <code>comments</code> and all the entities referenced by <code>author</code> on those entities!. <a href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn more in the documentation</a>.'
       tags:
         - Taxonomy term - Countries
       responses:
@@ -4294,9 +3497,7 @@ paths:
           description: successful operation
           schema:
             title: taxonomy_term:countries Schema
-            description: >-
-              Describes the payload for 'taxonomy_term' entities of the
-              'countries' bundle.
+            description: Describes the payload for 'taxonomy_term' entities of the 'countries' bundle.
             type: object
             required:
               - data
@@ -4306,17 +3507,13 @@ paths:
                 items:
                   $ref: '#/definitions/taxonomy_term--countries/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -4326,9 +3523,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -4338,9 +3533,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -4348,13 +3541,7 @@ paths:
   /taxonomy/countries/{entity}:
     get:
       summary: View (Taxonomy term - Countries)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
-        for the taxonomy_term--countries resource type. The individual endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular resource or entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em> for the taxonomy_term--countries resource type. The individual endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular resource or entity.
       parameters:
         - name: entity
           required: true
@@ -4372,15 +3559,7 @@ paths:
   /taxonomy/lawyers:
     get:
       summary: List (Taxonomy term - Lawyers)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em>
-        for the taxonomy_term--lawyers resource type. Collections are a list of
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        objects</a></em> for a particular resource type. In the JSON API module
-        for Drupal all collections are homogeneous, which means that all the
-        items in a collection are of the same type.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Collection endpoint</a></em> for the taxonomy_term--lawyers resource type. Collections are a list of <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource objects</a></em> for a particular resource type. In the JSON API module for Drupal all collections are homogeneous, which means that all the items in a collection are of the same type.
       parameters:
         - name: filter
           in: query
@@ -4388,45 +3567,26 @@ paths:
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module has some of the most robust and feature-rich
-            filtering features around. All of that power comes with a bit of a
-            learning curve though. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn
-            more in the documentation</a>.
+          description: The JSON:API module has some of the most robust and feature-rich filtering features around. All of that power comes with a bit of a learning curve though. <a href="https://www.drupal.org/docs/8/modules/jsonapi/filtering">Learn more in the documentation</a>.
         - name: sort
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            The JSON:API module allows you to sort collections based on
-            properties in the resource or in nested resources. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn
-            more in the documentation</a>.
+          description: The JSON:API module allows you to sort collections based on properties in the resource or in nested resources. <a href="https://www.drupal.org/docs/8/modules/jsonapi/sorting">Learn more in the documentation</a>.
         - name: page
           in: query
           type: array
           items:
             type: string
           required: false
-          description: >-
-            Pagination can be a deceptively complex topic. It's easy to fall
-            into traps and not follow best-practices. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn
-            more in the documentation</a>.
+          description: Pagination can be a deceptively complex topic. It's easy to fall into traps and not follow best-practices. <a href="https://www.drupal.org/docs/8/modules/jsonapi/pagination">Learn more in the documentation</a>.
         - name: include
           in: query
           type: string
           required: false
-          description: >-
-            Embed related entities in the response. For example: use a query
-            string like <code>?include=comments.author</code> to include all the
-            entities referenced by <code>comments</code> and all the entities
-            referenced by <code>author</code> on those entities!. <a
-            href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn
-            more in the documentation</a>.
+          description: 'Embed related entities in the response. For example: use a query string like <code>?include=comments.author</code> to include all the entities referenced by <code>comments</code> and all the entities referenced by <code>author</code> on those entities!. <a href="https://www.drupal.org/docs/8/modules/jsonapi/includes">Learn more in the documentation</a>.'
       tags:
         - Taxonomy term - Lawyers
       responses:
@@ -4434,9 +3594,7 @@ paths:
           description: successful operation
           schema:
             title: taxonomy_term:lawyers Schema
-            description: >-
-              Describes the payload for 'taxonomy_term' entities of the
-              'lawyers' bundle.
+            description: Describes the payload for 'taxonomy_term' entities of the 'lawyers' bundle.
             type: object
             required:
               - data
@@ -4446,17 +3604,13 @@ paths:
                 items:
                   $ref: '#/definitions/taxonomy_term--lawyers/properties/data'
               meta:
-                description: >-
-                  Non-standard meta-information that can not be represented as
-                  an attribute or relationship.
+                description: Non-standard meta-information that can not be represented as an attribute or relationship.
                 type: object
                 additionalProperties: true
               links:
                 type: object
                 additionalProperties:
-                  description: >-
-                    A link **MUST** be represented as either: a string
-                    containing the link's URL or a link object .
+                  description: 'A link **MUST** be represented as either: a string containing the link''s URL or a link object .'
                   type: object
                   required:
                     - href
@@ -4466,9 +3620,7 @@ paths:
                       type: string
                       format: uri - reference
                     meta:
-                      description: >-
-                        Non-standard meta-information that can not be
-                        represented as an attribute or relationship.
+                      description: Non-standard meta-information that can not be represented as an attribute or relationship.
                       type: object
                       additionalProperties: true
               jsonapi:
@@ -4478,9 +3630,7 @@ paths:
                   version:
                     type: string
                   meta:
-                    description: >-
-                      Non-standard meta-information that can not be represented
-                      as an attribute or relationship.
+                    description: Non-standard meta-information that can not be represented as an attribute or relationship.
                     type: object
                     additionalProperties: true
                 additionalProperties: false
@@ -4488,13 +3638,7 @@ paths:
   /taxonomy/lawyers/{entity}:
     get:
       summary: View (Taxonomy term - Lawyers)
-      description: >-
-        <em class="placeholder"><a
-        href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em>
-        for the taxonomy_term--lawyers resource type. The individual endpoint
-        contains a <em class="placeholder"><a
-        href="http://jsonapi.org/format/#document-resource-objects">resource
-        object</a></em> with the data for a particular resource or entity.
+      description: <em class="placeholder"><a href="http://jsonapi.org/format/#fetching">Individual endpoint</a></em> for the taxonomy_term--lawyers resource type. The individual endpoint contains a <em class="placeholder"><a href="http://jsonapi.org/format/#document-resource-objects">resource object</a></em> with the data for a particular resource or entity.
       parameters:
         - name: entity
           required: true
