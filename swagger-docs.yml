@@ -4,7 +4,7 @@ schemes:
 info:
   description: This is a JSON API compliant implementation
   title: Go Solid - JSON API
-  version: 1.0.1
+  version: 1.0.2
 host: dev-app.go-solid.be
 basePath: /connect/api
 securityDefinitions:
@@ -1665,6 +1665,10 @@ definitions:
               event_id:
                 type: string
                 title: Kaspar Event ID
+                maxLength: 255
+              name:
+                type: string
+                title: Name
                 maxLength: 255
               text_detail:
                 type: object
